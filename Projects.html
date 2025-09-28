@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cristallo.js — Coming Soon</title>
+    <meta name="description"
+        content="Cristallo.js — Visual Alchemist. Coming Soon landing page — designer themed, dark + neon." />
+    <meta property="og:title" content="Cristallo.js — Coming Soon">
+    <meta property="og:description" content="Mini coming soon page for Cristallo.js — designer themed, dark + neon." />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
+
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <style>
+        :root {
+            --bg: #070607;
+            --card: #0f0f12;
+            --muted: #bfb6d9;
+            --accent1: #8a2be2;
+            /* purple */
+            --accent2: #6a0dad;
+            /* deep purple */
+            --glass: rgba(255, 255, 255, 0.03);
+            --glow: 0 8px 30px rgba(138, 43, 226, 0.18);
+            --radius: 18px;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            height: 100%
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            background: radial-gradient(1200px 500px at 10% 10%, rgba(106, 13, 173, 0.08), transparent),
+                radial-gradient(1000px 400px at 90% 90%, rgba(138, 43, 226, 0.06), transparent),
+                var(--bg);
+            color: #eae8ef;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1rem;
+        }
+
+        /* subtle moving gradient background lines */
+        .bg-lines {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-lines::before,
+        .bg-lines::after {
+            content: '';
+            position: absolute;
+            inset: -20%;
+            background: linear-gradient(90deg, rgba(138, 43, 226, 0.06), rgba(106, 13, 173, 0.02));
+            transform: skewX(-20deg);
+            animation: floatX 14s linear infinite;
+            filter: blur(20px);
+        }
+
+        .bg-lines::after {
+            animation-duration: 22s;
+            opacity: 0.6
+        }
+
+        @keyframes floatX {
+            from {
+                transform: translateX(-10%) skewX(-20deg)
+            }
+
+            to {
+                transform: translateX(10%) skewX(-20deg)
+            }
+        }
+
+        .card {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 720px;
+            border-radius: calc(var(--radius));
+            padding: 36px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            backdrop-filter: blur(8px);
+            box-shadow: var(--glow), 0 2px 12px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            text-align: center;
+        }
+
+        .brand {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .logo {
+            width: 72px;
+            height: 72px;
+            border-radius: 14px;
+            display: inline-grid;
+            place-items: center;
+            font-size: 28px;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.12), rgba(106, 13, 173, 0.08));
+            border: 1px solid rgba(138, 43, 226, 0.18);
+            box-shadow: 0 6px 22px rgba(106, 13, 173, 0.12);
+            transition: transform .35s ease, box-shadow .35s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-6px) rotate(-6deg);
+            box-shadow: 0 14px 40px rgba(138, 43, 226, 0.22)
+        }
+
+        h1 {
+            font-size: clamp(32px, 6vw, 56px);
+            margin: 6px 0 8px;
+            letter-spacing: -1px;
+            /* line-height: 1; */
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 18px rgba(106, 13, 173, 0.12);
+        }
+
+        .subtitle {
+            color: var(--muted);
+            margin-bottom: 20px;
+            font-weight: 500
+        }
+
+        .coming-card {
+            margin: 22px auto;
+            max-width: 520px;
+            padding: 20px;
+            border-radius: 14px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0.008));
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .big-coming {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .label {
+            font-size: 20px;
+            color: var(--muted);
+            font-weight: 600
+        }
+
+        .coming-soon {
+            font-weight: 700;
+            font-size: clamp(28px, 6vw, 42px);
+            padding: 8px 16px;
+            border-radius: 10px;
+            display: inline-block;
+            background: linear-gradient(90deg, rgba(138, 43, 226, 0.12), rgba(106, 13, 173, 0.06));
+            box-shadow: 0 8px 28px rgba(106, 13, 173, 0.08);
+            border: 1px solid rgba(138, 43, 226, 0.16);
+            color: #fff;
+        }
+
+        /* neon underline effect */
+        .coming-soon::after {
+            content: '';
+            display: block;
+            height: 6px;
+            margin-top: 10px;
+            border-radius: 6px;
+            background: linear-gradient(90deg, rgba(138, 43, 226, 0.9), rgba(106, 13, 173, 0.7));
+            filter: blur(10px);
+            opacity: 0.9;
+            transform: scaleX(0.95);
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 18px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            padding: 10px 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            font-weight: 600;
+            cursor: pointer;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            color: var(--muted);
+            transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+            min-width: 140px;
+        }
+
+        .btn:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 36px rgba(106, 13, 173, 0.12);
+            color: #fff
+        }
+
+        .btn.primary {
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            color: #fff;
+            box-shadow: 0 12px 40px rgba(138, 43, 226, 0.18);
+        }
+
+        .tiny {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 14px
+        }
+
+        /* email input */
+        .subscribe {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+            margin-top: 14px
+        }
+
+        .input {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 10px 12px;
+            border-radius: 12px;
+            color: inherit;
+            min-width: 220px;
+            outline: none;
+            font-weight: 500;
+        }
+
+        .input::placeholder {
+            color: rgba(255, 255, 255, 0.35)
+        }
+
+        .socials {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 18px
+        }
+
+        .socials a {
+            display: inline-grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--muted);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all .2s
+        }
+
+        .socials a:hover {
+            transform: translateY(-6px);
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(106, 13, 173, 0.09)
+        }
+
+        footer {
+            margin-top: 22px;
+            color: rgba(255, 255, 255, 0.28);
+            font-size: 13px
+        }
+
+        /* small screen adjustments */
+        @media (max-width:480px) {
+            .logo {
+                width: 56px;
+                height: 56px;
+                font-size: 22px
+            }
+
+            .card {
+                padding: 20px
+            }
+
+            .btn {
+                min-width: 120px
+            }
+
+            .input {
+                min-width: 140px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-lines" aria-hidden></div>
+
+    <main class="card" role="main" aria-labelledby="coming">
+        <div class="brand">
+            <div class="logo" aria-hidden>✨</div>
+            <div style="text-align:left">
+                <div style="font-weight:700; font-size:16px;">Cristallo.js</div>
+                <div style="color:var(--muted); font-size:13px; margin-top:3px;">Graphic Designer & Web Developer</div>
+            </div>
+        </div>
+
+        <h1 id="coming">Coming Soon</h1>
+        <p class="subtitle">A new visual chapter is under construction — launching soon.</p>
+
+        <section class="coming-card" aria-labelledby="coming">
+            <div class="big-coming">
+                <div class="label">Launch:</div>
+                <div class="coming-soon" id="countdown">Requesting Time…</div>
+            </div>
+
+            <div class="actions">
+                <a class="btn primary" href="https://www.instagram.com/cristallo.jz/" target="_blank"
+                    rel="noopener">Follow Instagram</a>
+                <button class="btn" id="notify">Notify Me</button>
+            </div>
+
+            <div class="socials" style="margin-top:14px">
+                <a href="https://github.com/Kinkafka" target="_blank" rel="noopener" aria-label="GitHub"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://wa.me/628386864718" target="_blank" rel="noopener" aria-label="WhatsApp"><i
+                        class="fab fa-whatsapp"></i></a>
+            </div>
+
+        </section>
+
+        <footer>© 2025 Cristallo.jz — PSD</footer>
+    </main>
+
+    <script>
+        // Simple countdown demo (fallback to a readable date). Modify `launchDate` to set your actual launch.
+        (function () {
+            const launchDate = new Date();
+            // default: 7 days from now
+            launchDate.setDate(launchDate.getDate() + 7);
+
+            const el = document.getElementById('countdown');
+
+            function update() {
+                const now = new Date();
+                const diff = launchDate - now;
+                if (diff <= 0) { el.textContent = 'Launched!'; clearInterval(timer); return }
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hrs = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const secs = Math.floor((diff % (1000 * 60)) / 1000);
+                el.textContent = `${days}d ${hrs}h ${mins}m ${secs}s`;
+            }
+            update();
+            const timer = setInterval(update, 1000);
+
+            // Notify / subscribe (demo only)
+            document.getElementById('notify').addEventListener('click', () => {
+                alert('Thanks! You will be notified (demo).');
+            });
+            if (!email) return alert('Please enter an email.');
+            alert('Subscribed (demo): ' + email);
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,346 +1,384 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="id">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Cristallo.js — Visual Designer & Web Developer | Crafting digital experiences with typography, layout, and code." />
-  <title>Cristallo.js | Profile</title>
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%230f0f0f'/><text x='50' y='68' text-anchor='middle' font-family='Poppins' font-weight='700' font-size='70' fill='%238a2be2'>C</text></svg>" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cristallo.js — Coming Soon</title>
+    <meta name="description"
+        content="Cristallo.js — Visual Alchemist. Coming Soon landing page — designer themed, dark + neon." />
+    <meta property="og:title" content="Cristallo.js — Coming Soon">
+    <meta property="og:description" content="Mini coming soon page for Cristallo.js — designer themed, dark + neon." />
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>✨</text></svg>">
 
-    body {
-      background: #0f0f0f;
-      color: #e0e0e0;
-      font-family: 'Poppins', sans-serif;
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      overflow-x: hidden;
-    }
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-    a {
-      text-decoration: none;
-      color: inherit;
-      transition: all 0.3s ease;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1.5rem;
-      text-align: center;
-      flex: 1;
-    }
-
-    /* Personal Mark / Logo */
-    .personal-mark {
-      display: inline-block;
-      width: 40px;
-      height: 40px;
-      background: linear-gradient(135deg, #8a2be2, #4b0082);
-      border-radius: 8px;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 1.2rem;
-      color: white;
-      box-shadow: 0 4px 12px rgba(138, 43, 226, 0.3);
-      animation: pulse 2s infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 0 0 0 rgba(138, 43, 226, 0.4); }
-      50% { box-shadow: 0 0 0 8px rgba(138, 43, 226, 0); }
-    }
-
-    .avatar {
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid #8a2be2;
-      box-shadow: 0 0 30px rgba(138, 43, 226, 0.4);
-      margin: 0 auto 1.2rem;
-      transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-      display: block;
-    }
-
-    .avatar:hover {
-      transform: scale(1.12) rotate(2deg);
-      box-shadow: 0 0 40px rgba(138, 43, 226, 0.6), 0 0 60px rgba(106, 13, 173, 0.3);
-    }
-
-    h1 {
-      font-size: 2.6rem;
-      font-weight: 700;
-      margin-bottom: 0.3rem;
-      background: linear-gradient(135deg, #8a2be2, #4b0082);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .tagline {
-      font-size: 1.2rem;
-      color: #b19cd9;
-      font-weight: 600;
-      margin-bottom: 1.4rem;
-    }
-
-    .about {
-      font-size: 1.05rem;
-      color: #ccc;
-      max-width: 650px;
-      margin: 0 auto 2rem;
-      line-height: 1.75;
-      font-weight: 500;
-    }
-
-    /* Divider with dual accent */
-    .divider {
-      height: 2px;
-      background: linear-gradient(to right, transparent, #8a2be2, #4fc3f7, transparent);
-      margin: 2rem auto;
-      width: 60%;
-      opacity: 0;
-      transform: scaleX(0);
-      transform-origin: center;
-      transition: all 0.7s ease;
-    }
-
-    /* Portfolio Preview */
-    .portfolio-section {
-      margin: 2.5rem 0;
-    }
-
-    .portfolio-title {
-      font-size: 1.3rem;
-      color: #8a2be2;
-      margin-bottom: 1.2rem;
-      font-weight: 600;
-    }
-
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 kolom */
-  gap: 20px;
-  max-width: 1000px;  /* lebih besar dari sebelumnya */
-  margin: 0 auto;
-}
-
-.portfolio-item {
-  width: 100%;
-  aspect-ratio: 4 / 5;  /* jaga proporsi */
-  /* border-radius: 12px; */
-  background-size: cover;
-  background-position: center;
-  transition: all 0.35s ease;
-}
-
-
-    .portfolio-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 16px rgba(138, 43, 226, 0.3);
-      border-color: #8a2be2;
-    }
-
-    .portfolio-item:nth-child(1) { background-image: url(ncfull.jpg);
- }
-    .portfolio-item:nth-child(2) { background-image: url(new@3x1.jpg);   border: 1.5px solid #ffffff;
- }
-    /* .portfolio-item:nth-child(3) { background: linear-gradient(45deg, #2d1a3d, #6a0dad); }
-    .portfolio-item:nth-child(4) { background: linear-gradient(45deg, #1a3d2d, #00695c); } */
-
-    /* Social Links */
-    .social-links {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 1rem;
-      margin: 2rem 0 2.5rem;
-    }
-
-    .social-links a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.6rem;
-      padding: 1rem;
-      border-radius: 16px;
-      background: #1a1a1a;
-      color: #d0b3ff;
-      font-weight: 600;
-      font-size: 1rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      border: 1px solid #2a2a2a;
-      transition: all 0.35s ease;
-    }
-
-    .social-links a i {
-      font-size: 1.3rem;
-    }
-
-    .social-links a:hover {
-      background: linear-gradient(135deg, #8a2be2, #4fc3f7);
-      color: white;
-      transform: translateY(-5px) scale(1.03);
-      box-shadow: 0 8px 22px rgba(138, 43, 226, 0.5);
-    }
-
-    footer {
-      text-align: center;
-      padding: 1.8rem 1.5rem;
-      font-size: 0.9rem;
-      color: #888;
-      border-top: 1px solid #222;
-      margin-top: auto;
-      font-weight: 500;
-    }
-
-    /* Animations */
-    .fade-up {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-
-    .fade-up.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    .divider.visible {
-      opacity: 1;
-      transform: scaleX(1);
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-      .container {
-        margin-top: 1.2rem;
-        padding: 0 1.2rem;
-      }
-      h1 {
-        font-size: 2.1rem;
-      }
-      .tagline {
-        font-size: 1.05rem;
-      }
-      .avatar {
-        width: 150px;
-        height: 150px;
-      }
-      .social-links {
-        grid-template-columns: 1fr;
-      }
-  .portfolio-grid {
-    grid-template-columns: 1fr;
-    gap: 16px;
-  }
-  .portfolio-item {
-    width: 100%;
-    aspect-ratio: 4 / 5;  /* tetap jaga proporsi */
-  }
-
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="personal-mark">C</div>
-    
-    <img 
-      src="https://i.pinimg.com/736x/ef/26/71/ef2671102b52b630f6d2590b9e09678b.jpg" 
-      alt="Cristallo.js" 
-      class="avatar fade-up"
-      id="profileAvatar"
-    >
-
-    <h1 class="fade-up">Cristallo.js</h1>
-    <p class="tagline fade-up">Visual Designer & Web Developer</p>
-    
-    <div class="divider" id="divider1"></div>
-    
-    <p class="about fade-up">Crafting digital experiences with intentional typography, bold layouts, and clean code.</p>
-
-    <!-- Portfolio Preview -->
-    <div class="portfolio-section fade-up">
-      <h3 class="portfolio-title">✨ Recent Works</h3>
-      <div class="portfolio-grid">
-        <div class="portfolio-item"></div>
-        <div class="portfolio-item"></div>
-      </div>
-    </div>
-
-    <div class="divider" id="divider2"></div>
-
-    <!-- Social Links -->
-    <div class="social-links">
-      <a href="https://www.instagram.com/cristallo.jz/" target="_blank" rel="noopener" class="fade-up">
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
-      <a href="https://github.com/Kinkafka" target="_blank" rel="noopener" class="fade-up">
-        <i class="fab fa-github"></i> GitHub
-      </a>
-      <a href="https://wa.me/628386864718" target="_blank" rel="noopener" class="fade-up">
-        <i class="fab fa-whatsapp"></i> WhatsApp
-      </a>
-      <a href="psd.html" target="_blank" rel="noopener" class="fade-up">
-        <i class="fa-solid fa-file"></i> Projects
-      </a>
-    </div>
-  </div>
-
-  <footer>
-    © 2025 Cristallo.js — Design with Passion ✨
-  </footer>
-
-  <script>
-    // Avatar load handling
-    document.getElementById('profileAvatar').addEventListener('load', function() {
-      this.classList.add('loaded');
-    });
-
-    // Scroll-triggered animations
-    function checkVisibility() {
-      const elements = document.querySelectorAll('.fade-up, .divider');
-      elements.forEach(el => {
-        const rect = el.getBoundingClientRect();
-        if (rect.top <= window.innerHeight * 0.85 && rect.bottom >= 0) {
-          el.classList.add('visible');
+    <style>
+        :root {
+            --bg: #070607;
+            --card: #0f0f12;
+            --muted: #bfb6d9;
+            --accent1: #8a2be2;
+            /* purple */
+            --accent2: #6a0dad;
+            /* deep purple */
+            --glass: rgba(255, 255, 255, 0.03);
+            --glow: 0 8px 30px rgba(138, 43, 226, 0.18);
+            --radius: 18px;
         }
-      });
-    }
 
-    // Initial check after short delay
-    window.addEventListener('load', () => {
-      setTimeout(checkVisibility, 300);
-    });
+        * {
+            box-sizing: border-box
+        }
 
-    window.addEventListener('scroll', checkVisibility);
-    window.addEventListener('resize', checkVisibility);
+        html,
+        body {
+            height: 100%
+        }
 
-    // Handle 404 (SPA fallback)
-    if (window.location.pathname.includes('404')) {
-      document.body.innerHTML = `
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;height:100vh;background:#0f0f0f;color:#8a2be2;font-family:Poppins;text-align:center;padding:2rem;">
-          <div style="font-size:4rem;margin-bottom:1rem;">✨</div>
-          <h2 style="font-size:1.8rem;margin-bottom:0.5rem;">You got lost in the dark theme...</h2>
-          <p style="color:#b19cd9;margin-bottom:2rem;font-size:1.1rem;">But the light is just a click away.</p>
-          <a href="/" style="background:linear-gradient(135deg,#8a2be2,#4fc3f7);color:white;padding:0.9rem 2.2rem;border-radius:14px;text-decoration:none;font-weight:600;box-shadow:0 8px 20px rgba(138,43,226,0.4);font-size:1.1rem;">Return Home</a>
+        body {
+            margin: 0;
+            font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+            background: radial-gradient(1200px 500px at 10% 10%, rgba(106, 13, 173, 0.08), transparent),
+                radial-gradient(1000px 400px at 90% 90%, rgba(138, 43, 226, 0.06), transparent),
+                var(--bg);
+            color: #eae8ef;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3rem 1rem;
+        }
+
+        /* subtle moving gradient background lines */
+        .bg-lines {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .bg-lines::before,
+        .bg-lines::after {
+            content: '';
+            position: absolute;
+            inset: -20%;
+            background: linear-gradient(90deg, rgba(138, 43, 226, 0.06), rgba(106, 13, 173, 0.02));
+            transform: skewX(-20deg);
+            animation: floatX 14s linear infinite;
+            filter: blur(20px);
+        }
+
+        .bg-lines::after {
+            animation-duration: 22s;
+            opacity: 0.6
+        }
+
+        @keyframes floatX {
+            from {
+                transform: translateX(-10%) skewX(-20deg)
+            }
+
+            to {
+                transform: translateX(10%) skewX(-20deg)
+            }
+        }
+
+        .card {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            max-width: 720px;
+            border-radius: calc(var(--radius));
+            padding: 36px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            backdrop-filter: blur(8px);
+            box-shadow: var(--glow), 0 2px 12px rgba(0, 0, 0, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            text-align: center;
+        }
+
+        .brand {
+            display: flex;
+            gap: 14px;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 12px;
+        }
+
+        .logo {
+            width: 72px;
+            height: 72px;
+            border-radius: 14px;
+            display: inline-grid;
+            place-items: center;
+            font-size: 28px;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.12), rgba(106, 13, 173, 0.08));
+            border: 1px solid rgba(138, 43, 226, 0.18);
+            box-shadow: 0 6px 22px rgba(106, 13, 173, 0.12);
+            transition: transform .35s ease, box-shadow .35s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-6px) rotate(-6deg);
+            box-shadow: 0 14px 40px rgba(138, 43, 226, 0.22)
+        }
+
+        h1 {
+            font-size: clamp(32px, 6vw, 56px);
+            margin: 6px 0 8px;
+            letter-spacing: -1px;
+            /* line-height: 1; */
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 18px rgba(106, 13, 173, 0.12);
+        }
+
+        .subtitle {
+            color: var(--muted);
+            margin-bottom: 20px;
+            font-weight: 500
+        }
+
+        .coming-card {
+            margin: 22px auto;
+            max-width: 520px;
+            padding: 20px;
+            border-radius: 14px;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0.008));
+            border: 1px solid rgba(255, 255, 255, 0.02);
+        }
+
+        .big-coming {
+            display: flex;
+            gap: 18px;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .label {
+            font-size: 20px;
+            color: var(--muted);
+            font-weight: 600
+        }
+
+        .coming-soon {
+            font-weight: 700;
+            font-size: clamp(28px, 6vw, 42px);
+            padding: 8px 16px;
+            border-radius: 10px;
+            display: inline-block;
+            background: linear-gradient(90deg, rgba(138, 43, 226, 0.12), rgba(106, 13, 173, 0.06));
+            box-shadow: 0 8px 28px rgba(106, 13, 173, 0.08);
+            border: 1px solid rgba(138, 43, 226, 0.16);
+            color: #fff;
+        }
+
+        /* neon underline effect */
+        .coming-soon::after {
+            content: '';
+            display: block;
+            height: 6px;
+            margin-top: 10px;
+            border-radius: 6px;
+            background: linear-gradient(90deg, rgba(138, 43, 226, 0.9), rgba(106, 13, 173, 0.7));
+            filter: blur(10px);
+            opacity: 0.9;
+            transform: scaleX(0.95);
+        }
+
+        .actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            margin-top: 18px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            padding: 10px 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            font-weight: 600;
+            cursor: pointer;
+            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+            color: var(--muted);
+            transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+            min-width: 140px;
+        }
+
+        .btn:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 36px rgba(106, 13, 173, 0.12);
+            color: #fff
+        }
+
+        .btn.primary {
+            background: linear-gradient(90deg, var(--accent1), var(--accent2));
+            color: #fff;
+            box-shadow: 0 12px 40px rgba(138, 43, 226, 0.18);
+        }
+
+        .tiny {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 14px
+        }
+
+        /* email input */
+        .subscribe {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            justify-content: center;
+            margin-top: 14px
+        }
+
+        .input {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            padding: 10px 12px;
+            border-radius: 12px;
+            color: inherit;
+            min-width: 220px;
+            outline: none;
+            font-weight: 500;
+        }
+
+        .input::placeholder {
+            color: rgba(255, 255, 255, 0.35)
+        }
+
+        .socials {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 18px
+        }
+
+        .socials a {
+            display: inline-grid;
+            place-items: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--muted);
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all .2s
+        }
+
+        .socials a:hover {
+            transform: translateY(-6px);
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(106, 13, 173, 0.09)
+        }
+
+        footer {
+            margin-top: 22px;
+            color: rgba(255, 255, 255, 0.28);
+            font-size: 13px
+        }
+
+        /* small screen adjustments */
+        @media (max-width:480px) {
+            .logo {
+                width: 56px;
+                height: 56px;
+                font-size: 22px
+            }
+
+            .card {
+                padding: 20px
+            }
+
+            .btn {
+                min-width: 120px
+            }
+
+            .input {
+                min-width: 140px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-lines" aria-hidden></div>
+
+    <main class="card" role="main" aria-labelledby="coming">
+        <div class="brand">
+            <div class="logo" aria-hidden>✨</div>
+            <div style="text-align:left">
+                <div style="font-weight:700; font-size:16px;">Cristallo.js</div>
+                <div style="color:var(--muted); font-size:13px; margin-top:3px;">Graphic Designer & Web Developer</div>
+            </div>
         </div>
-      `;
-    }
-  </script>
-</body>
-</html>
 
+        <h1 id="coming">Coming Soon</h1>
+        <p class="subtitle">A new visual chapter is under construction — launching soon.</p>
+
+        <section class="coming-card" aria-labelledby="coming">
+            <div class="big-coming">
+                <div class="label">Launch:</div>
+                <div class="coming-soon" id="countdown">Requesting Time…</div>
+            </div>
+
+            <div class="actions">
+                <a class="btn primary" href="https://www.instagram.com/cristallo.jz/" target="_blank"
+                    rel="noopener">Follow Instagram</a>
+                <button class="btn" id="notify">Notify Me</button>
+            </div>
+
+            <div class="socials" style="margin-top:14px">
+                <a href="https://github.com/Kinkafka" target="_blank" rel="noopener" aria-label="GitHub"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://wa.me/628386864718" target="_blank" rel="noopener" aria-label="WhatsApp"><i
+                        class="fab fa-whatsapp"></i></a>
+            </div>
+
+        </section>
+
+        <footer>© 2025 Cristallo.jz — PSD</footer>
+    </main>
+
+    <script>
+        // Simple countdown demo (fallback to a readable date). Modify `launchDate` to set your actual launch.
+        (function () {
+            const launchDate = new Date();
+            // default: 7 days from now
+            launchDate.setDate(launchDate.getDate() + 7);
+
+            const el = document.getElementById('countdown');
+
+            function update() {
+                const now = new Date();
+                const diff = launchDate - now;
+                if (diff <= 0) { el.textContent = 'Launched!'; clearInterval(timer); return }
+                const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const hrs = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                const secs = Math.floor((diff % (1000 * 60)) / 1000);
+                el.textContent = `${days}d ${hrs}h ${mins}m ${secs}s`;
+            }
+            update();
+            const timer = setInterval(update, 1000);
+
+            // Notify / subscribe (demo only)
+            document.getElementById('notify').addEventListener('click', () => {
+                alert('Thanks! You will be notified (demo).');
+            });
+            if (!email) return alert('Please enter an email.');
+            alert('Subscribed (demo): ' + email);
+        })();
+    </script>
+</body>
+
+</html>

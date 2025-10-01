@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Cristallo.js — Portfolio Desain | Koleksi karya desain visual dengan file PSD siap unduh." />
+  <title>Projects | Cristallo.js</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='50' fill='%230f0f0f'/><text x='50' y='68' text-anchor='middle' font-family='Poppins' font-weight='700' font-size='70' fill='%238a2be2'>C</text></svg>" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #0f0f0f;
+      color: #e0e0e0;
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.3s ease;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 0 1.5rem;
+      text-align: center;
+      flex: 1;
+    }
+
+    .personal-mark {
+      display: inline-block;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #8a2be2, #4b0082);
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 1.2rem;
+      color: white;
+      box-shadow: 0 4px 12px rgba(138, 43, 226, 0.3);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(138, 43, 226, 0.4); }
+      50% { box-shadow: 0 0 0 8px rgba(138, 43, 226, 0); }
+    }
+
+    h1 {
+      font-size: 2.4rem;
+      font-weight: 700;
+      margin: 1.5rem 0 0.5rem;
+      background: linear-gradient(135deg, #8a2be2, #4b0082);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .tagline {
+      font-size: 1.15rem;
+      color: #b19cd9;
+      font-weight: 600;
+      margin-bottom: 0.6rem;
+    }
+
+    .intro-text {
+      font-size: 0.95rem;
+      color: #aaa;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      font-weight: 500;
+      line-height: 1.6;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-top: 1.5rem;
+    }
+
+    .portfolio-card {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: 12px;
+      overflow: hidden;
+      background: #1a1a1a;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+
+    .portfolio-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(138, 43, 226, 0.4);
+    }
+
+    .portfolio-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+
+    .portfolio-card:hover .portfolio-image {
+      transform: scale(1.05);
+    }
+
+    .portfolio-overlay {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: linear-gradient(to top, rgba(138, 43, 226, 0.9), transparent 70%);
+      padding: 1.4rem 1rem 1rem;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s ease;
+    }
+
+    .portfolio-card:hover .portfolio-overlay {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .project-category {
+      display: inline-block;
+      background: rgba(138, 43, 226, 0.3);
+      color: #d0b3ff;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 20px;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .portfolio-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 0.8rem;
+      color: white;
+    }
+
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      background: white;
+      color: #8a2be2;
+      padding: 0.65rem 1.2rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(138, 43, 226, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .download-btn:hover {
+      background: #f0f0f0;
+      transform: scale(1.05);
+      box-shadow: 0 6px 16px rgba(138, 43, 226, 0.6);
+    }
+
+    .divider {
+      height: 2px;
+      background: linear-gradient(to right, transparent, #8a2be2, #4fc3f7, transparent);
+      margin: 2rem auto;
+      width: 60%;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.8rem 1.5rem;
+      font-size: 0.9rem;
+      color: #888;
+      border-top: 1px solid #222;
+      margin-top: auto;
+      font-weight: 500;
+    }
+
+    /* Mobile: 3 columns + always show overlay */
+    @media (max-width: 768px) {
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+
+      .portfolio-overlay {
+        opacity: 1 !important;
+        transform: translateY(0) !important;
+        transition: none;
+        background: linear-gradient(to top, rgba(138, 43, 226, 0.95), transparent 60%);
+      }
+      
+      .portfolio-card {
+        transform: none;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+      .portfolio-card:hover .portfolio-image {
+        transform: scale(1);
+      }
+
+      .portfolio-card:hover {
+        transform: none;
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+      }
+
+      .portfolio-card:hover .portfolio-image {
+        transform: scale(1);
+      }
+      .download-btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.85rem;
+        gap: 0.3rem;
+        box-shadow: 0 3px 10px rgba(138, 43, 226, 0.4);
+      }
+        .portfolio-title {
+            font-size: 0.95rem;
+        }
+        .divider {
+            width: 80%;
+        }
+        .download-btn:hover {
+            transform: scale(1.02);
+        }
+
+    }
+
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 1rem;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .portfolio-grid {
+        gap: 16px;
+      }
+      .portfolio-title {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <a href="index.html" style="display:inline-block;margin-top:1rem;">
+      <div class="personal-mark">C</div>
+    </a>
+    
+    <h1>My Design Projects</h1>
+    <p class="tagline">Psd Project✨</p>
+    <!-- <p class="intro-text">My Project Psd </p> -->
+    
+    <div class="divider"></div>
+
+    <div class="portfolio-grid">
+      <!-- Project 1 -->
+      <div class="portfolio-card">
+        <img src="ncfull.jpg" alt="" class="portfolio-image">
+        <div class="portfolio-overlay">
+          <div class="project-category">Poster</div>
+          <div class="portfolio-title">NightCrawler</div>
+          <a href="Projects.html" class="download-btn" data-project="1">
+            <i class="fas fa-file-download"></i> Unduh PSD
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="portfolio-card">
+        <img src="new@3x1.jpg" alt="" class="portfolio-image">
+        <div class="portfolio-overlay">
+          <div class="project-category">Poster</div>
+          <div class="portfolio-title">Breaking Bad</div>
+          <a href="Projects.html" class="download-btn" data-project="2">
+            <i class="fas fa-file-download"></i> Unduh PSD
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 3
+      <div class="portfolio-card">
+        <img src="https://placehold.co/300x375/3d1a2d/e91e63?text=Tech+App" alt="Tech Startup Mobile App" class="portfolio-image">
+        <div class="portfolio-overlay">
+          <div class="project-category">UI Design</div>
+          <div class="portfolio-title">Tech Startup App</div>
+          <a href="#" class="download-btn" data-project="3">
+            <i class="fas fa-file-download"></i> Unduh PSD
+          </a>
+        </div>
+      </div>
+
+      Project 4
+      <div class="portfolio-card">
+        <img src="https://placehold.co/300x375/1a2d3d/2196f3?text=Landing+Page" alt="Creative Landing Page" class="portfolio-image">
+        <div class="portfolio-overlay">
+          <div class="project-category">Web Design</div>
+          <div class="portfolio-title">Creative Landing Page</div>
+          <a href="#" class="download-btn" data-project="4">
+            <i class="fas fa-file-download"></i> Unduh PSD
+          </a>
+        </div>
+      </div>
+
+      Project 5
+      <div class="portfolio-card">
+        <img src="https://placehold.co/300x375/2d3d1a/ff9800?text=Social+Kit" alt="Social Media Kit" class="portfolio-image">
+        <div class="portfolio-overlay">
+          <div class="project-category">Social Media</div>
+          <div class="portfolio-title">Social Media Kit</div>
+          <a href="#" class="download-btn" data-project="5">
+            <i class="fas fa-file-download"></i> Unduh PSD
+          </a>
+        </div>
+      </div>
+
+      Project 6
+      <div class="portfolio-card">
+        <img src="https://placehold.co/300x375/3d2d1a/9c27b0?text=Product+Pack" alt="Minimalist Product Packaging" class="portfolio-image">
+        <div class="portfolio-overlay">
+          <div class="project-category">Packaging</div>
+          <div class="portfolio-title">Minimalist Packaging</div>
+          <a href="#" class="download-btn" data-project="6">
+            <i class="fas fa-file-download"></i> Unduh PSD
+          </a>
+        </div>
+      </div>
+
+      Project 7
+      <div class="portfolio-card">
+        <img src="https://placehold.co/300x375/1a1a3d/00bcd4?text=Event+Banner" alt="Digital Event Banner" class="portfolio-image">
+        <div class="portfolio-overlay">
+          <div class="project-category">Banner</div>
+          <div class="portfolio-title">Digital Event Banner</div>
+          <a href="#" class="download-btn" data-project="7">
+            <i class="fas fa-file-download"></i> Unduh PSD
+          </a>
+        </div>
+      </div>
+
+        Project 8
+      <div class="portfolio-card">
+        <img src="https://placehold.co/300x375/3d1a3d/f44336?text=Illustration" alt="Abstract Digital Art" class="portfolio-image">
+        <div class="portfolio-overlay">
+          <div class="project-category">Illustration</div>
+          <div class="portfolio-title">Abstract Digital Art</div>
+          <a href="#" class="download-btn" data-project="8">
+            <i class="fas fa-file-download"></i> Unduh PSD
+          </a>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+  <footer>
+    © 2025 Cristallo.js — Design with Passion ✨
+  </footer>
+
+  <!-- <script>
+    document.querySelectorAll('.download-btn').forEach(btn => {
+      btn.addEventListener('click', function(e) {
+        e.preventDefault();
+        const projectNum = this.getAttribute('data-project');
+        const title = this.closest('.portfolio-card').querySelector('.portfolio-title').textContent;
+        alert(`Mengunduh file PSD untuk: "${title}"\n\nFile siap digunakan untuk portofolio pribadi.`);
+        // Ganti dengan: window.location.href = `psd/project-${projectNum}.psd`;
+      });
+    });
+  </script> -->
+</body>
+</html>
